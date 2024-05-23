@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Шашлыки для народа</title>
+    <link rel="shortcut icon" href="{% static 'pictures/main_icon.png'%}" />
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
+</head>
+<body style="background: #98D177;">
+
+<header class="page_header">
+    <nav class="site_navigation">
+        <a href="/">Шашлыки для народа</a>
+    </nav>
+</header>
+
+<main class="main" style="margin-bottom: 23%">
+    <div class="enter_container">
+        <h3>Выберите дату для бронирования</h3>
+        <form id="dateForm" action="{% url 'check_bookings' %}" method="get">
+            <input type="text" name="date" placeholder="Выберите дату" id="datepicker" class="form-control">
+        </form>
+    </div>
+</main>
+
+<footer class="page_footer">
+    <a href="/">Шашлыки для народа</a>
+    <h6>Романов Илья, Маскалев Глеб, спешиал фо точка</h6>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        flatpickr("#datepicker", {
+            "locale": "ru",
+            altInput: true,
+            altFormat: "F j",
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            maxDate: "2024-8-31",
+            position: "auto center",
+            disableMobile: "true",
+            onChange: function(selectedDates, dateStr, instance) {
+                document.getElementById('dateForm').submit();
+            }
+        });
+    });
+</script>
+</body>
+</html>

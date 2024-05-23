@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Бронь на {{ time_str }} {{ picked_date|date:"j E" }}</title>
+    <link rel="shortcut icon" href="{% static 'pictures/main_icon.png'%}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body style="background: #98d177;">
+    <header class="page_header">
+        <nav class="site_navigation">
+            <a href="/">Шашлыки для народа</a>
+        </nav>
+    </header>
+
+    <main style="text-align: center">
+        <h3>Заполните форму для подтверждения бронирования</h3>
+        <h4 style="margin-bottom: 5px;">{{ picked_date|date:"j E" }} {{ time_str }}</h4>
+        <p style="margin-top: 5px;">{{ fireplace }}</p>
+
+        
+
+    </main>
+
+    <footer class="page_footer">
+        <a href="/">Шашлыки для народа</a>
+        <h6>Романов Илья, Маскалев Глеб, спешиал фо точка</h6>
+    </footer>
+</body>
+</html>

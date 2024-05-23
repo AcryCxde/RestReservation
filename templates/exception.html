@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ошибка</title>
+    <link rel="shortcut icon" href="{% static 'pictures/main_icon.png'%}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body style="background: #98D177;">
+    <header class="page_header">
+        <nav class="site_navigation">
+            <a href="/">Шашлыки для народа</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <h1 class = "enter_container">Вы сделали что-то неверное <br> Попробуйте указать другое значение</h1>
+        <p style="text-align: center"><img src="{% static 'pictures/exception.jpg'%}" width="250px" height="250px"></p>
+    </main>
+</body>
+</html>
