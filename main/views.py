@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from jsonrpcserver import method, async_dispatch as dispatch
 from main.models import Booking, FirePlace
 from datetime import *
 
@@ -11,11 +12,8 @@ all_time_slots = [
         '18:00-20:00',
         '20:00-22:00',
     ]
-def index(request):
-    return render(request,'index.html')
 
-def PickDay(request):
-    return render(request,'Pick_day.html')
+
 
 def check_bookings(request):
     date_str = request.GET.get('date')
@@ -37,6 +35,7 @@ def check_bookings(request):
         return redirect('exception')
 
     bookings = Booking.objects.filter(booking_date=picked_date) if picked_date else []
+
     fireplaces = FirePlace.objects.all()
 
     booked_slots = {}
@@ -65,7 +64,6 @@ def booking_form(request):
     if not id_str or int(id_str) < 1 or int(id_str) > 4:
         return redirect('exception')
     fireplace = FirePlace.objects.get(id=int(id_str))
-    print(fireplace)
 
     if date_str:
         try:
@@ -93,6 +91,11 @@ def booking_form(request):
     return render(request,'booking_form.html', context)
 
 
+
+def index(request):
+    return render(request,'index.html')
+def PickDay(request):
+    return render(request,'Pick_day.html')
 def exception(request):
     return render(request, 'exception.html')
 
