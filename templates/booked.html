@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Оплата</title>
+    <link rel="shortcut icon" href="{% static 'pictures/main_icon.png'%}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body style="background: #98d177;">
+    <header class="page_header">
+        <nav class="site_navigation">
+            <div>
+                <img src="{% static 'pictures/main_icon.png'%}" width="50" height="50">
+                <a href="/" style="margin-left: 20px; vertical-align: 15px"> Шашлыки для народа </a>
+            </div>
+        </nav>
+    </header>
+
+    <main style="text-align: center;">
+        <h1>Почти успех!</h1>
+        <div class = 'form' style="width: 700px; margin-bottom:10px">
+            <p>Ваша бронь успешно создана и отправлена<br> вам на email,<b> но не оплачена</b></p>
+            <p><b>Оплатите бронь</b>, чтобы её подтвердить. <br>В случае неоплаты ваша бронь будет снята</p>
+            <p><b>Обязательно укажите имя и фамилию,<br> указанные в брони!</b></p>
+        </div>
+        <button onclick="window.location = 'https://www.tinkoff.ru/cf/3Ckk5KG2knM';" class="a_button">Оплатить</button>
+    </main>
+
+    <footer class="page_footer">
+        <a href="/">Шашлыки для народа</a>
+        <h6>Романов Илья, Маскалев Глеб, спешиал фо точка</h6>
+    </footer>
+</body>
+</html>

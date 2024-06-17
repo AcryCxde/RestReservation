@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Костровые места на {{ picked_date|date:"j E Y" }}</title>
-    <link rel="shortcut icon" href="{% static 'pictures/main_icon.png'%}" />
+    <link rel="shortcut icon" href="{% static 'pictures/main_icon.png' %}"/>
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -12,61 +12,70 @@
     <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
 </head>
 <body style="background: #99c57e;">
-    <header class="page_header">
-        <nav class="site_navigation">
-            <a href="/">Шашлыки для народа</a>
-        </nav>
-    </header>
-
-    <main class="main" style="background: linear-gradient(180deg, #c2e8ab 8.91%, #98d177 16.12%, #98d177 28.7%, #c2e8ab 34.92%, #c2e8ab 51.32%, #98d177 61.5%, #98d177 74.58%, #c2e8ab 81.9%);">
-        <div class="enter_container">
-            <h3>Доступные варианты на {{ picked_date|date:"j E Y" }}</h3>
-            <form id="dateForm" action="{% url 'check_bookings' %}" method="get">
-                <input type="text" name="date" id="datepicker" class="form-control" value = {{ picked_date|date:"Y-m-d" }}>
-            </form>
+<header class="page_header">
+    <nav class="site_navigation">
+        <div>
+            <img src="{% static 'pictures/main_icon.png' %}" width="50" height="50">
+            <a href="/" style="margin-left: 20px; vertical-align: 15px"> Шашлыки для народа </a>
         </div>
+    </nav>
+</header>
 
-        <ul>
-            {% for fireplace in fireplaces %}
-                <li class="fireplace">
-                    <img class = "fireplace_img" src="{% static fireplace.image_path %}" width="624" height="400" alt="{{ fireplace.name }}">
-                    <div class = "fireplace_info">
-                        <h3>{{ fireplace.name }}</h3>
-                        <h4>{{ fireplace.description }}</h4>
-                        <p>{{ fireplace.cost }} рублей / 2 часа</p>
-                        <p>Выберите время:</p>
-                        <ul class="list_time">
-                            {% for time_slot in all_time_slots %}
-                                {% for key, val in booked_slots.items %}
-                                    {% if key == fireplace.id %}
-                                        {% if val %}
-                                            {% for time in val %}
-                                                {% if time_slot == time %}
-                                                    <li><a class = 'banned_time'>{{ time_slot }}</a></li>
-                                                {% else %}
-                                                    <li><a class = 'free_time' href = "/booking_form?date={{ picked_date|date:'Y-m-d' }}&time={{ time_slot }}&id={{ fireplace.id }}">{{ time_slot }}</a></li>
-                                                {% endif %}
+<main class="main"
+      style="background: linear-gradient(180deg, #c2e8ab 8.91%, #98d177 16.12%, #98d177 28.7%, #c2e8ab 34.92%, #c2e8ab 51.32%, #98d177 61.5%, #98d177 74.58%, #c2e8ab 81.9%);">
+    <div class="enter_container_box">
+        <h3>Доступные варианты на {{ picked_date|date:"j E Y" }}</h3>
+        <form id="dateForm" action="{% url 'check_bookings' %}" method="get">
+            <input type="text" name="date" id="datepicker" class="form-control" value= {{ picked_date|date:"Y-m-d" }}>
+        </form>
+    </div>
 
-                                            {% endfor %}
-                                        {% else %}
-                                            <li><a class = 'free_time' href = "/booking_form?date={{ picked_date|date:'Y-m-d' }}&time={{ time_slot }}&id={{ fireplace.id }}">{{ time_slot }}</a></li>
-                                        {% endif %}
-                                        {% endif %}
-                                {% endfor %}
+    <ul>
+        {% for fireplace in fireplaces %}
+            <li class="fireplace">
+                <img class="fireplace_img" src="{% static fireplace.image_path %}" width="624" height="400"
+                     alt="{{ fireplace.name }}">
+                <div class="fireplace_info">
+                    <h3>{{ fireplace.name }}</h3>
+                    <h4>{{ fireplace.description }}</h4>
+                    <p>{{ fireplace.cost }} рублей / 2 часа</p>
+                    <p>Выберите время:</p>
+                    <ul class="list_time">
+                        {% for time_slot in all_time_slots %}
+                            {{ booked_slots.fireplace.id}}
+                            {% for key, val in booked_slots.items %}
+                                {% if key == fireplace.id %}
+                                    {% if val %}
+                                        {% for time in val %}
+                                            {% if time_slot == time %}
+                                                <li><a class='banned_time'>{{ time_slot }}</a></li>
+                                            {% else %}
+                                                <li><a class='free_time'
+                                                       href="/booking_form?date={{ picked_date|date:'Y-m-d' }}&time={{ time_slot }}&id={{ fireplace.id }}">{{ time_slot }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% else %}
+                                        <li><a class='free_time'
+                                               href="/booking_form?date={{ picked_date|date:'Y-m-d' }}&time={{ time_slot }}&id={{ fireplace.id }}">{{ time_slot }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
                             {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-    </main>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
 
-    <footer class="page_footer">
-        <a href="/">Шашлыки для народа</a>
-        <h6>Романов Илья, Маскалев Глеб, спешиал фо точка</h6>
-    </footer>
+<footer class="page_footer">
+    <a href="/">Шашлыки для народа</a>
+    <h6>Романов Илья, Маскалев Глеб, спешиал фо точка</h6>
+</footer>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         flatpickr("#datepicker", {
             "locale": "ru",
             altInput: true,
@@ -76,7 +85,7 @@
             maxDate: "2024-8-31",
             position: "auto center",
             disableMobile: "true",
-            onChange: function(selectedDates, dateStr, instance) {
+            onChange: function (selectedDates, dateStr, instance) {
                 document.getElementById('dateForm').submit();
             }
         });

@@ -16,11 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import index
-from main.views import PickDay
-from main.views import check_bookings
-from main.views import booking_form
-from main.views import exception
+from main.views import index, PickDay, exception, booking_form, check_bookings, booked
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +25,5 @@ urlpatterns = [
     path('check_bookings/', check_bookings, name='check_bookings'),
     path('booking_form/', booking_form, name='booking_form'),
     path('exception/', exception, name='exception'),
+    path('booked/',booked, name='booked')
 ]

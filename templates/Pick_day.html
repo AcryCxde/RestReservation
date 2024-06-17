@@ -15,12 +15,15 @@
 
 <header class="page_header">
     <nav class="site_navigation">
-        <a href="/">Шашлыки для народа</a>
+        <div>
+            <img src="{% static 'pictures/main_icon.png'%}" width="50" height="50">
+            <a href="/" style="margin-left: 20px; vertical-align: 15px"> Шашлыки для народа </a>
+        </div>
     </nav>
 </header>
 
 <main class="main" style="margin-bottom: 23%">
-    <div class="enter_container">
+    <div class="enter_container_box">
         <h3>Выберите дату для бронирования</h3>
         <form id="dateForm" action="{% url 'check_bookings' %}" method="get">
             <input type="text" name="date" placeholder="Выберите дату" id="datepicker" class="form-control">

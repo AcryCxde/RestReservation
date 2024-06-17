@@ -6,26 +6,100 @@
     <title>Бронь на {{ time_str }} {{ picked_date|date:"j E" }}</title>
     <link rel="shortcut icon" href="{% static 'pictures/main_icon.png'%}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body style="background: #98d177;">
     <header class="page_header">
         <nav class="site_navigation">
-            <a href="/">Шашлыки для народа</a>
+            <div>
+                <img src="{% static 'pictures/main_icon.png'%}" width="50" height="50">
+                <a href="/" style="margin-left: 20px; vertical-align: 15px"> Шашлыки для народа </a>
+            </div>
         </nav>
     </header>
 
-    <main style="text-align: center">
+    <main style="text-align: center;">
         <h3>Заполните форму для подтверждения бронирования</h3>
-        <h4 style="margin-bottom: 5px;">{{ picked_date|date:"j E" }} {{ time_str }}</h4>
-        <p style="margin-top: 5px;">{{ fireplace }}</p>
+        <div class="form">
+            <div class="picked_place">
+                <img src="{% static fireplace.image_path %}" width="312" height="200">
+                <div class="picked_info">
+                    <p>{{ fireplace }}</p>
+                    <p>{{ picked_date|date:"j E" }}</p>
+                    <p>{{ time_str }}</p>
+                    <p style="font-weight: 800;">{{ fireplace.cost }} рублей</p>
+                </div>
+            </div>
 
-        
-
+            <div class="booking-form">
+                <form id="reservationForm" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Фамилия Имя</label>
+                        <input type="text" id="name" name="name" required pattern="[A-Za-zА-Яа-яЁё\s]{2,50}" title="Введите корректное имя и фамилию (только буквы и пробелы, от 2 до 50 символов)">
+                        <div class="error" id="nameError">Пожалуйста, введите корректное имя и фамилию.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Телефон</label>
+                        <input type="tel" id="phone" name="phone" required pattern="^\+?[0-9\s\-\(\)]{7,15}$" title="Введите корректный номер телефона">
+                        <div class="error" id="phoneError">Пожалуйста, введите корректный номер телефона.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error" id="emailError">Пожалуйста, введите корректный email.</div>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="{{ public_key }}"></div>
+                    <input type="submit" value="Забронировать">
+                </form>
+                {% if error_message %}
+                    <p style="color: red;">{{ error_message }}</p>
+                {% endif %}
+            </div>
+        </div>
     </main>
 
     <footer class="page_footer">
         <a href="/">Шашлыки для народа</a>
         <h6>Романов Илья, Маскалев Глеб, спешиал фо точка</h6>
     </footer>
+<script>
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        var isValid = true;
+
+        var nameInput = document.getElementById('name');
+        var phoneInput = document.getElementById('phone');
+        var emailInput = document.getElementById('email');
+
+        var nameError = document.getElementById('nameError');
+        var phoneError = document.getElementById('phoneError');
+        var emailError = document.getElementById('emailError');
+
+        if (!nameInput.checkValidity()) {
+            nameError.style.display = 'block';
+            isValid = false;
+        } else {
+            nameError.style.display = 'none';
+        }
+
+        if (!phoneInput.checkValidity()) {
+            phoneError.style.display = 'block';
+            isValid = false;
+        } else {
+            phoneError.style.display = 'none';
+        }
+
+        if (!emailInput.checkValidity()) {
+            emailError.style.display = 'block';
+            isValid = false;
+        } else {
+            emailError.style.display = 'none';
+        }
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+</script>
 </body>
 </html>

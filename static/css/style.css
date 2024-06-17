@@ -35,14 +35,27 @@ body{
 }
 .page_header{
     height: 100px;
-    background: linear-gradient(0deg, #98d177 0%, #d4ffbc 100%);
+    background: #98d177;
 
 
 }
 .enter_container {
+    height: 530px;
+    background-image: url("/static/pictures/index_3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.enter_container p {
+    color: white;
+}
+
+.enter_container_box {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 75px;
+
 }
 
 h1 {
@@ -51,7 +64,9 @@ h1 {
     font-size: 64px;
     letter-spacing: -0.02em;
     text-align: center;
-    color: #000000;
+    color: #ffffff;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 a {
     text-decoration: none;
@@ -59,7 +74,7 @@ a {
     font-weight: 500;
     font-size: 20px;
     line-height: 150%;
-    color: #000;
+    color: #ffffff;
 }
 
 p {
@@ -83,12 +98,11 @@ p {
 }
 
 .first_advantage {
-    /*background: #a5c891;*/
+    background-color: #98d177;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 40px 80px;
-    margin: 60px 0px;
 }
 
 h3 {
@@ -100,12 +114,12 @@ h3 {
 }
 
 .second_advantage {
-    /*background: #ffffff;*/
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 40px 80px;
-    margin: 60px 0px;
+    margin: 60px 0px 0 0px;
 }
 
 .second_adv_text {
@@ -114,10 +128,14 @@ h3 {
 
 .our_advantages {
     margin: 0px 80px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 48px;
+    color: #050505;
 }
 
 .first_list_advantages{
-    margin: 45px 80px;
+    margin: 45px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -137,7 +155,7 @@ h4 {
 }
 
 .second_list_advantages{
-    margin: 45px 80px;
+    margin: 45px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -145,19 +163,25 @@ h4 {
 
 .four_advantages {
     padding: 40px 80px;
-    margin: 60px 0px;
-    /*background: #a5c891;*/
+    margin: 60px 80px;
+    border-radius: 10px;
+    background-color: #98d177;
+
 }
 
 .last_spot{
     background-image: url("/static/pictures/index_3.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 424px;
-    padding: 60px 0px;
+    height: 530px;
+}
+
+.last_spot_box {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding-top: 150px;
+    padding-bottom: 80px;
 }
 
 .last_spot * {
@@ -166,38 +190,45 @@ h4 {
 }
 
 h2{
+    margin: 15px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    font-size: 48px;
+    font-size: 52px;
     line-height: 110%;
 }
 
 .page_footer {
     height: 20px;
-    background: linear-gradient(180deg, #98d177 0%, #d4ffbc 100%);
+    background: #98d177;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 24px;
 }
 
+.page_footer a {
+    color: black;
+}
 .h6{
     font-family: "Montserrat", sans-serif;
 }
 
 
+.form-control {
+    width: 958px;
+    height: 75px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 110%;
+}
+
 input {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 12px 16px;
-    width: 958px;
-    height: 75px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background: #fff;
     font-family: "Montserrat Alternates", sans-serif;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 110%;
     color: #000;
     text-align: center;
 }
@@ -253,4 +284,107 @@ input {
     letter-spacing: -0.02em;
     color: #000000;
     padding: 10px 10px;
+}
+
+/* Центрирование формы */
+.form {
+    background: #e3ffd6;
+    border-radius: 16px;
+    padding: 20px 20px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    max-width: 1000px; /* Установка максимальной ширины */
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивные стили для picked_place */
+.picked_place {
+    border: 5px solid #95cb70;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Центрирование по горизонтали */
+    max-width: 1000px;
+}
+
+/* Адаптивные стили для picked_info */
+.picked_info p {
+    text-align: end;
+    line-height: 0.8;
+    margin-left: 20px; /* Уменьшение отступа */
+}
+
+/* Стили для формы бронирования */
+.booking-form {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.booking-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.booking-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.booking-form input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .picked_place {
+        flex-direction: column; /* Переход на колонку на маленьких экранах */
+        align-items: center;
+    }
+
+    .picked_info p {
+        text-align: center;
+        margin-left: 0; /* Уменьшение отступа для центрации */
+    }
+}
+
+.g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
 }

@@ -10,12 +10,15 @@
 <body style="background: #98D177;">
     <header class="page_header">
         <nav class="site_navigation">
-            <a href="/">Шашлыки для народа</a>
+            <div>
+                <img src="{% static 'pictures/main_icon.png'%}" width="50" height="50">
+                <a href="/" style="margin-left: 20px; vertical-align: 15px"> Шашлыки для народа </a>
+            </div>
         </nav>
     </header>
 
     <main class="main">
-        <h1 class = "enter_container">Вы сделали что-то неверное <br> Попробуйте указать другое значение</h1>
+        <h1 class = "enter_container_box">Вы сделали что-то неверное... <br> Попробуйте ещё раз</h1>
         <p style="text-align: center"><img src="{% static 'pictures/exception.jpg'%}" width="250px" height="250px"></p>
     </main>
 </body>
