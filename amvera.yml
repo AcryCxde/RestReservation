@@ -1,0 +1,11 @@
+meta:
+  environment: python
+  toolchain:
+  name: pip
+  version: 3.9
+build:
+  requirementsPath: requirements.txt
+run:
+  command: gunicorn RestReservation.wsgi:application  --bind 0.0.0.0:80
+  persistenceMount: /data
+  containerPort: 80
