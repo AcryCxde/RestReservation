@@ -6,7 +6,8 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  command: bash -c "
+  command: >
+    bash -c "
     python manage.py collectstatic --noinput &&
     python manage.py makemigrations &&
     python manage.py migrate &&
