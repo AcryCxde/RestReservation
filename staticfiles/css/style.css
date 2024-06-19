@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@100..900&display=swap');
+{% load static %}
+body, html {
+    margin: 0;
+    padding: 0;
+}
+body{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.list_item {
+    width: 515px;
+}
+.site_navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px;
+}
+
+.a_button_minor {
+    background: #59863D;
+    color: #fff;
+    border-radius: 8px;
+    padding: 14px 24px;
+    display: inline-block;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+}
+.page_header{
+    height: 100px;
+    background: #98d177;
+
+
+}
+.enter_container {
+    height: 530px;
+    background-image: url("/static/pictures/index_3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.enter_container p {
+    color: white;
+}
+
+.enter_container_box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 75px;
+
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+a {
+    text-decoration: none;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: #ffffff;
+}
+
+p {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 150%;
+    color: #000;
+}
+
+.a_button {
+    border-radius: 8px;
+    padding: 14px 24px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    background: #59863D;
+    color: #fff;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 150%;
+}
+
+.first_advantage {
+    background-color: #98d177;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+h3 {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 110%;
+    color: #000;
+}
+
+.second_advantage {
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 80px;
+    margin: 60px 0px 0 0px;
+}
+
+.second_adv_text {
+    margin: 0px 112px;
+}
+
+.our_advantages {
+    margin: 0px 80px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 48px;
+    color: #050505;
+}
+
+.first_list_advantages{
+    margin: 45px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    list-style-type: none;
+
+}
+
+h4 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #000;
+}
+
+.second_list_advantages{
+    margin: 45px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.four_advantages {
+    padding: 40px 80px;
+    margin: 60px 80px;
+    border-radius: 10px;
+    background-color: #98d177;
+
+}
+
+.last_spot{
+    background-image: url("/static/pictures/index_3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 530px;
+}
+
+.last_spot_box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+
+.last_spot * {
+    color: #fff;
+    text-align: center;
+}
+
+h2{
+    margin: 15px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 110%;
+}
+
+.page_footer {
+    height: 20px;
+    background: #98d177;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px;
+}
+
+.page_footer a {
+    color: black;
+}
+.h6{
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.form-control {
+    width: 958px;
+    height: 75px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 110%;
+}
+
+input {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    font-family: "Montserrat Alternates", sans-serif;
+    color: #000;
+    text-align: center;
+}
+
+.fireplace {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 40px;
+    margin: 60px 10px;
+}
+
+.fireplace_info{
+    margin: 0 30px;
+    height: 450px;
+    width: 800px
+}
+
+.list_time{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.list_time li {
+    flex-shrink: 0;
+    margin-right: 10px;
+
+}
+
+.free_time {
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    background: #7fa369;
+    font-family: "Montserrat", sans-serif;;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: #fff;
+    padding: 10px 10px;
+}
+.banned_time {
+    border-radius: 10px;
+    width: 80px;
+    height: 40px;
+    background: #48593D;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: #000000;
+    padding: 10px 10px;
+}
+
+/* Центрирование формы */
+.form {
+    background: #e3ffd6;
+    border-radius: 16px;
+    padding: 20px 20px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    max-width: 1000px; /* Установка максимальной ширины */
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивные стили для picked_place */
+.picked_place {
+    border: 5px solid #95cb70;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto; /* Центрирование по горизонтали */
+    max-width: 1000px;
+}
+
+/* Адаптивные стили для picked_info */
+.picked_info p {
+    text-align: end;
+    line-height: 0.8;
+    margin-left: 20px; /* Уменьшение отступа */
+}
+
+/* Стили для формы бронирования */
+.booking-form {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.booking-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.booking-form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.booking-form input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .picked_place {
+        flex-direction: column; /* Переход на колонку на маленьких экранах */
+        align-items: center;
+    }
+
+    .picked_info p {
+        text-align: center;
+        margin-left: 0; /* Уменьшение отступа для центрации */
+    }
+}
+
+.g-recaptcha {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
