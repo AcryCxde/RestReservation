@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['s4p-acrywxrk.amvera.io', 'localhost', '127.0.0.1']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://s4p-acrywxrk.amvera.io/']
 # Application definition
 
 INSTALLED_APPS = [

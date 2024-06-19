@@ -6,7 +6,7 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  command: bash -c "python manage.py collectstatic --noinput && gunicorn RestReservation.wsgi:application --bind 0.0.0.0:80"
+  command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations --noinput && python manage.py migrate --noinput && gunicorn RestReservation.wsgi:application --bind 0.0.0.0:80"
   persistenceMount: /data
   containerPort: "80"
 
