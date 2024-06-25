@@ -1,0 +1,35 @@
+version: '3.12'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: restreservationdb
+      POSTGRES_USER: adminka
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      SECRET_KEY: django-insecure-kkk3_m878*vn6ei9+kghh-r0!ri)4u$#u=01bu@n2w^pbh)=x0
+      DATABASE_NAME: restreservationdb
+      DATABASE_USER: adminka
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      RECAPTCHA_PUBLIC_KEY: 6LfJRvUpAAAAAICpI_ut0cX3d9-UFsr-sow7Njep
+      RECAPTCHA_PRIVATE_KEY: 6LfJRvUpAAAAAD0a0lkxFrlO73ZU1xnK5JXn5KhY
+      EMAIL_HOST_USER: forSendEmails@yandex.ru
+      EMAIL_HOST_PASSWORD: nstgqcoupputlcvd
+
+volumes:
+  postgres_data:
